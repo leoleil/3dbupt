@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>大数据可视化</title>
+    <meta charset="utf-8">
+<!--    <link rel="stylesheet" type="text/css" href="style.css">-->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="papaparse.js"></script>
+</head>
+<body class="home-template">
+    <!-- start nav -->
+    <nav class="navbar-default" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1 col-xs-1">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="http://echarts.baidu.com/index.html">ECharts</a>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    
+                </div>
+                <div class="col-md-7 col-xs-7">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#3DWave">3D Bar</a></li>
+                        <li><a href="#3DCloud">3D Cloud</a></li>
+                        <li><a href="#Other">Other</a></li>
+                        <!-- <li><a href="#">澡堂攻略</a></li> -->
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </nav>
+    <!-- end nav -->
+    <!-- start header -->
+    <header class="header" id="home">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <br>
+                <br>
+                <br>
+                <div class="logotxt text-center" ><h1 style="color: white">校园大数据可视化</h1></div> 
+                <h3 class="site-name text-center" style="color: white">2018.5</h3>
+                <br>
+                <br>
+                <br>
+            </div>
+       </div>
+       
+    </header>
+    <!-- end header -->
+    <!-- start main -->
+    <main class="main" role="main" id="3DWave">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="container-fluid">
+                    <div class="jumbotron">
+                        <h1>3D Bar</h1>
+                        <p>基于北邮大数据构建2017年全年在线用户数量而构建的3D柱形图图</p>
+                        <p>不仅能在大视角下审视大数据的美,而能让人深入数据之中自己发现数据</p>
+                        <p><a class="btn btn-primary btn-lg" href="3Dbar_M9.html" role="button" target="_blank">9月数据</a></p>
+                        <p><a class="btn btn-primary btn-lg" href="3Dbar.html" role="button" target="_blank">3D柱形图（全年）</a></p>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+        <div class="row container-fluid">
+            <div class="col-md-12 col-xs-12">
+                <div class="page-header container-fluid">
+                    <h1>BUPT上网大数据分析</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row container-fluid" style="text-indent:2em">
+            <div class="col-md-4 col-xs-4">
+                <div class="thumbnail">
+                    <img src="image/每日网络态势.png" alt="网络高峰">
+                    <div class="caption">
+                        <h3>BUPT网络每日态势</h3>
+                        <p>通过数据视图的分析可视，网络高峰出现在每天的的22点之后，网络的负担大得恐怖。11月份平均这个时间段就有近10000个学生在线，每一个学生可能还会使用多台设备，网络负载堪忧。这也许就是北邮一到晚上校园网不能好好吃鸡的主要原因。</p>
+                        <p>在一天的清醒的时间中，北邮网络在线人数呈现的是类似于指数一般的增长，在夜间的0点到1点到达一天中在线人数的最高峰，并在1点后迅速回落。</p>
+                        
+                    </div>
+                        <img src="image/上网低谷.png" alt="上网低谷">
+                    <div class="caption">
+                        <p>在凌晨1点之后，在线人数断崖式下跌并经历一天中难得的在线低谷期。这个低谷期会持续到7点钟，低谷期持续了6个小时，之后在线人数逐步回温。综合断电和睡觉等因素，这个低谷符合北邮人作息。推测北邮人还是在12点到1点之间睡觉为主。</p>
+                        <p>从一天之中上网态势分析发现，大家对于上网的热情是逐步升高的，从早上7点开始上网人数增长，所以在一天的清醒时间中，网络环境最好的就是上午11点之前。在13点会迎来白天第一个小高峰，虽然之后有所回落但是在线人数还是很多。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <div class="thumbnail">
+                    <img src="image/全年网络态势.png" alt="全年数据纵览">
+                    <div class="caption">
+                        <h3>BUPT全年网络态势</h3>
+                        <p>北邮全年网络态势与学校的假期密不可分。通过颜色的区分，我们可以很直观的看到北邮7到8月份的网络呈现蓝色，表明这期间在线人数非常少，此时正好是北邮的暑假。10月初我们观察到了一个在开学期间的小低谷，学校上网人数飘蓝色，这期间是国庆假期。从2017年全年数据对比我们发现，2017年上半年上网压力明显低于2017年下半年。</p>
+                    </div>
+                    <img src="image/北邮暑假.png" alt="北邮暑假">
+                    <div class="caption">
+                        <p>在8月份后期，北邮在线人数逐步回暖，在9月份上网在线人数逐步增，表明了新学期的开始。其中9月1日0点出现一个非常特别的高峰，远远高于当天的在线人数，这天北邮开学。有特点的是2017年8月1日出现一个假期的特别高峰。还有一个有趣的地方就是，每个月的1号附近，都会迎来一波1点高峰，这是北邮上网的周期性规律，推测与校园流量更新有关。</p>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>北邮上网有趣的事情</h3>
+                    </div>
+                    <img src="image/北邮上下半年.png" alt="国庆回来">
+                    <div class="caption">
+                        <p>北邮人全年上网喜欢后期发力:<small>从全年数据态势上看，2017年上半学期北邮人好好学习天天向上，上网人数不易激增，颜色为黄色表明态势稳定。而到了下半年，数据全线飘红，上网形势严峻，北邮人开始沉迷于0点上网无可自拔。</small></p>
+                        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                    </div>
+                    <img src="image/国庆回来.png" alt="国庆回来">
+                    <div class="caption">
+                        <p>北邮的冬天断电加剧网络拥堵：<small>从数据上来看，10月份是2017年下学期网络数据的分水岭，在经过国庆小长假后，北邮人的网络在线人数峰值开始集中到0点左右，在线峰值人数达到的可怕的深红色水平，这个趋势一直保持到年底。作为在北邮生活4年的土著，深刻感受到断电对于北邮人的上网欲望带来深刻的打击，使得大家要在断电前拼老命上网。</small></p>
+                    </div>
+                    <img src="image/9月.png" alt="9月flag">
+                    <div class="caption">
+                        <p>北邮人假期回来会保持一段时间的好作息：<small>9月份放假回来，峰值时间虽然还在0点左右，但是在线峰值人数只是最高峰值的2/3左右，这期间说明有同学保持了开学一段时间好好做人的传统。但好景不长，9月份后期大家越睡越晚，在国庆的10月1日，在线人数数值突破0到1点。国庆假期期间是一个小低谷，国庆回来后的一小段时期，上网人数也是慢慢回暖的，而在23点网峰值就提前到来，在0点进入低谷期。可见北邮人假期回来一般会带来好一段时间的的作息。</small></p>
+                    </div>
+                </div>   
+            </div>
+        </div>
+        <div class="row" id="3DCloud">
+            <div class="col-md-12 col-xs-12">
+                <div class="container-fluid">
+                    <div class="jumbotron">
+                        <h1>3D Bubble Cloud</h1>
+                        <p>基于北邮大数据构建2017年全年的澡堂数据图构建北邮的洗浴气泡云图</p>
+                        <p>模仿洗澡的泡泡，使用最直观的视角展现整体态势，使用最拟物化的方式来展现大数据</p>
+                        <p><a class="btn btn-primary btn-lg" href="3Dwave.html" role="button" target="_blank">3D泡沫云图</a></p>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+        <div class="row container-fluid">
+            <div class="col-md-12 col-xs-12">
+                <div class="page-header container-fluid">
+                    <h1>BUPT澡堂大数据分析</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row container-fluid" style="text-indent:2em">
+            <div class="col-md-4 col-xs-4">
+                <div class="thumbnail">
+                    <img src="./image/洗澡云图.png" alt="洗澡云图">
+                    <div class="caption">
+                        <h3>BUPT每日洗澡攻略</h3>
+                        <p>在每日视图的角度来说，北邮洗澡属于指数增长态势，只有一个高峰时段在20点到22点之间。北邮人偏爱晚上去洗澡，洗澡时间出奇一致，这样的一致造成了北邮澡堂爆炸的高峰期。</p>
+                    </div>
+                    <img src="./image/每日云图.png" alt="每日云图">
+                    <div class="caption">
+                        <p>通过数据视图的分析洗澡最高峰出现在每天的的22点之后，此时澡堂进入一天之中的峰值（不想排队洗澡的同学请绕开这个时间）。北邮的澡堂由于空间小，极容易在高峰时段产生拥挤。本程序员年轻的时候，有一次因为事情耽误了洗澡，22点半到澡堂后，第一次深刻感受到我邮人口基数的庞大。而澡堂的高峰时间就在晚上9点到11点之间，此时的洗澡需要排队。</p>
+                        <p>为了避免北邮的洗澡高峰，也有一小部分人选择将洗澡安排在了下午时段，但是人数过少（低谷期平均一个小时200人左右，而高峰期多大达5000多人一个小时）。为了缓解北邮澡堂压力请大家错峰洗澡。</p>
+                        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                    </div>
+                    <img src="./image/气泡高峰.png" alt="气泡高峰">
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <div class="thumbnail">
+                    
+                    <div class="caption">
+                        <h3>全年数据纵览</h3>
+                        <p>从全年的角度观察，我们发现了北邮人洗澡的季节规律。</p>
+                    </div>
+                    <img src="./image/气泡全年.png" alt="全年数据纵览">
+                    <div class="caption">
+                        <p>在2017年上半年，即春夏季节中，北邮人洗澡高峰时段还是20点到22点之间，但是人数明显下降，最高峰3000人左右一个小时。而白天的低谷期人数有所上涨，平均能达到300到400人左右一个小时。从视图来看，上半年明显不如下半年陡峭。高峰时间虽然没有明显变化，但是高峰时期人数相对于下半年明显下降。而这部分少了的人选择在其他时间点去洗澡，澡堂压力明显减少。</p>
+                    </div>
+                    <img src="./image/气泡上半年.png" alt="全年数据纵览">
+                    <div class="caption">
+                        <p>而到了2017年下半年，从视图明显非常陡峭陡峭。北邮人洗澡时间开始集中到高峰时间，澡堂压力山大。数据中有趣的是，2017年1月份，澡堂压力其实与春季夏季压力相当，推测季节可能不是造成澡堂洗澡集中的主要原因。2017年11月后，北邮澡堂高峰时段全部飘红，这种集中洗澡的趋势是2017年下半年的一个特点，这个趋势可能会持续到2018年（由于没有2018年的数据，所以没有继续分析了）。</p>
+                    </div>
+                    <img src="./image/气泡下半年.png" alt="全年数据纵览">
+                </div> 
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>从数据中发现北邮洗澡好玩的点</h3>
+                    </div>
+                    <img src="image/春节洗澡.png" alt="春节洗澡">
+                    <div class="caption">
+                        <p>北邮人假期洗澡是限时的:<small>在全年图中，北邮假期洗澡开门时间最早是在下午6点之后。寒假干脆没有开放，这样让人不禁想问，寒假留校的同学是如何解决个人卫生问题的呢？</small></p>
+                        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                    </div>
+                    <img src="image/假期洗澡.png" alt="假期洗澡">
+                    <div class="caption">
+                        <p>北邮冬天洗澡为何都喜欢扎堆在21到23点间？：<small>不知道为何北邮人在2017年下半年后喜欢扎堆洗澡。从视图上看，下半年扎堆洗澡非常突出。与上半年相比是全线飘红。这对于澡堂蜀黍来说肯定不是一个好消息。本人推测可能是新一届入住本部的同学有着集中洗澡的习惯吧。</small></p>
+                    </div>
+                    <img src="image/冬季爆满.png" alt="冬季爆满">
+                    
+                </div>   
+            </div>
+        </div>
+        <div class="row" id="Other">
+            <div class="col-md-12 col-xs-12">
+                <div class="container-fluid">
+                    <div class="jumbotron">
+                        <h1>BUPT Data</h1>
+                        <p>基于北邮大数据的其它可视化作品</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row container-fluid">
+            <div class="col-md-12 col-xs-12">
+                <div class="page-header container-fluid">
+                    <h1>北邮校园大数据</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row container-fluid">
+            <div class="col-md-4 col-xs-4">
+                <div class="thumbnail">
+                    <img src="./image/学院人数.png" alt="学院人数">
+                    <div class="caption">
+                        <h3>北邮2017级各学院人数统计</h3>
+                        <p>实现动态数据展示</p>
+                        <p><a href="school_num.html" class="btn btn-primary" role="button" target="_blank">查看</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <div class="thumbnail">
+                    <img src="./image/图书借阅.png" alt="图书借阅">
+                    <div class="caption">
+                        <h3>北邮图书馆借阅Top10</h3>
+                        <p>结合柱形图与扇形图的特点</p>
+                        <p><a href="图书借阅.html" class="btn btn-primary" role="button" target="_blank">查看</a>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <div class="thumbnail">
+                    <img src="image/北邮消费.png" alt="北邮消费">
+                    <div class="caption">
+                        <h3>北邮消费水平</h3>
+                        <p>通过多种图形对数据多角度展示</p>
+                        <p><a href="消费信息.html" class="btn btn-primary" role="button" target="_blank">查看</a>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </main>
+    <!-- end main -->
+    <!-- start footer -->
+    <footer class="main-footer" style="">
+        <div class="container" >
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="widget">
+                        <h4 class="title">友情链接</h4>
+                        <div class="content tag-cloud friend-links">
+                            <a href="http://www.bootcss.com/" title="Bootstrap中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Bootstrap中文网'])" target="_blank">Bootstrap中文网</a>
+                            <a href="https://www.quanzhanketang.com/" title="全栈课堂" onclick="_hmt.push(['_trackEvent', 'link', 'click', '全栈课堂'])" target="_blank">全栈课堂</a>
+                            <a href="https://www.webpackjs.com/" title="Webpack中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Webpack中文网'])" target="_blank">Webpack中文网</a>
+                            <a href="https://www.nodeapp.cn/" title="Node.js中文文档" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Node.js中文文档'])" target="_blank">Node.js中文文档</a>
+                            <a href="http://www.91php.com/" title="91PHP" onclick="_hmt.push(['_trackEvent', 'link', 'click', '91PHP'])" target="_blank">91PHP</a>
+                            <a href="http://www.rollupjs.com/" title="Rollup中文文档" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Rollup中文文档'])" target="_blank">Rollup中文文档</a>
+                            <a href="https://www.jquery123.com/" title="jQuery中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'jQuery中文网'])" target="_blank">jQuery中文网</a>
+                            <a href="https://www.npmjs.com.cn/" title="NPM中文文档" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'NPM中文文档'])" target="_blank">NPM中文文档</a>
+                            <a href="http://www.sasschina.com/" title="SASS中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'SASS中文网'])" target="_blank">SASS中文网</a>                        
+                            <a href="http://www.golaravel.com/" title="Laravel中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Laravel中文网'])" target="_blank">Laravel中文网</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="widget">
+                        <h4 class="title">我们用到的技术</h4>
+                        <div class="content tag-cloud">
+                            <a href="http://www.bootcss.com/" title="Bootstrap中文网" )" target="_blank">Bootstrap</a>
+                            <a href="http://echarts.baidu.com/" title="ECharts" )" target="_blank">ECharts</a>
+                            <a href="http://www.bootcdn.cn/" title="BootCDN" target="_blank">BootCDN</a>
+                            <a href="http://www.gruntjs.net/" title="Grunt中文网" target="_blank">Grunt</a>
+                            <a href="http://www.jquery123.com/" title="jQuery中文文档" target="_blank">jQuery</a>
+                            <a href="http://lodashjs.com/" title="lodash中文网"  target="_blank">Lodash</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="widget">
+                        <h4 class="title">院校</h4>
+                        <div class="content friend-links">
+                            <a href="http://www.bupt.edu.cn/" title="北京邮电大学" " target="_blank">北京邮电大学</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <div class="copyright" style="">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p></p>
+                    <address class="text-center">
+                        Leo Leil<br>
+                        <abbr title="Phone">E-mail:</abbr>leoleil@163.com
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div>
+
+       
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
