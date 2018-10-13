@@ -1,0 +1,23 @@
+.header{
+	height: 220px;
+	background-image: url("image/luo-ping-516132-unsplash.jpg");
+	background-size: 100%;
+	background-repeat: none;
+}
+.main-footer{
+	height: 150px;
+	color: white;
+	background-color: #5B5B5B;
+}
+.copyright{
+	background-color: #242424;
+}
+a[target=_blank]
+{ 
+	color:white;
+}
+address{
+	color: #8F8F8F
+}
+
+

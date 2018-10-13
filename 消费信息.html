@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+        <script type="text/javascript" src="echarts.js"></script>
+        <script type="text/javascript" src="echarts.min.js"></script>
+        <script type="text/javascript" src="echarts-gl.js"></script>
+        <script type="text/javascript" src="papaparse.js"></script>
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+        <script type="text/javascript">
+
+
+$.getJSON('消费信息.json',function(data){
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+        tooltip: {},
+        legend: {
+            type: 'scroll',
+            orient: 'vertical',
+            right: 10,
+            top: 20,
+            bottom: 20,
+            /*data: data.legendData,
+
+            selected: data.selected*/
+        },
+        title: {
+            text: '北邮餐饮消费统计情况',
+            subtext: 'Leo Leil',
+            x: '25%',
+            textAlign: 'center'
+        }, 
+        grid: {
+            width: '50%',
+            bottom: '45%',
+            containLabel: true
+        }, 
+        
+        xAxis: {
+            type: 'value',
+            splitLine: {
+                show: false
+            },
+            axisTick: {
+                show: true,
+                interval: 0
+            }
+        }, 
+        yAxis: {
+            type: 'category',
+            /*data: Object.keys(builderJson.charts),*/
+            name: '食堂消费金额',
+            axisLabel: {
+                interval: 0,
+                rotate: 30
+            },
+            splitLine: {
+                show: false
+            },
+        }, 
+        series: [{
+            type: 'bar',
+            stack: 'chart',
+            z: 3,
+            label: {
+                normal: {
+                    position: 'right',
+                    show: true
+                }
+            },
+            data:data
+        }, 
+        {
+            type: 'pie',
+            radius: [0, '30%'],
+            center: ['75%', '25%'],
+            data: data
+        }]
+    };
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+});
+
+
+       </script>
+   </body>
+</html>

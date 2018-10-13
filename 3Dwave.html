@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3D云图</title>
+    <meta charset="utf-8">
+<!--    <link rel="stylesheet" type="text/css" href="style.css">-->
+</head>
+<body style="height: 100%; margin: 0">
+	<div class="loader loader--style6" title="5" id="loader">
+      <h1>3D Wave Loading</h1>
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+        <rect x="0" y="13" width="4" height="5" fill="#333">
+          <animate attributeName="height" attributeType="XML"
+            values="5;21;5" 
+            begin="0s" dur="0.6s" repeatCount="indefinite" />
+          <animate attributeName="y" attributeType="XML"
+            values="13; 5; 13"
+            begin="0s" dur="0.6s" repeatCount="indefinite" />
+        </rect>
+        <rect x="10" y="13" width="4" height="5" fill="#333">
+          <animate attributeName="height" attributeType="XML"
+            values="5;21;5" 
+            begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+          <animate attributeName="y" attributeType="XML"
+            values="13; 5; 13"
+            begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+        </rect>
+        <rect x="20" y="13" width="4" height="5" fill="#333">
+          <animate attributeName="height" attributeType="XML"
+            values="5;21;5" 
+            begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+          <animate attributeName="y" attributeType="XML"
+            values="13; 5; 13"
+            begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+        </rect>
+      </svg>
+    </div>
+    <div id="container" style="height: 600px"></div>
+       <script type="text/javascript" src="echarts.js"></script>
+       <script type="text/javascript" src="echarts.min.js"></script>
+       <script type="text/javascript" src="echarts-gl.js"></script>
+       <script type="text/javascript" src="papaparse.js"></script>
+       <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+var hour_count =(Date.parse("2018-01-01")-Date.parse("2017-01-01"))/1000/60/60;//总共的数据集合长度
+console.log("timeLenth is",hour_count);
+var showerCount = new Array(hour_count);
+var data=[];
+for(var i=0;i<hour_count;i++)
+{
+    showerCount[i]=0;
+}
+$.getJSON('shower_set.json',function(mydata){
+    console.log('json data is:',mydata);
+    data=mydata;
+    /*var dataSet=data;
+    for(var i=0;i<dataSet.length;i++)
+    {
+        if(dataSet[i].length==2)
+        {
+            if (Date.parse(dataSet[i][0])>=Date.parse("2017-01-01")&&Date.parse(dataSet[i][0])<Date.parse("2018-01-01")) {
+                var myDate=new Date("2017-01-01 "+dataSet[i][1])
+                var index=(Date.parse(dataSet[i][0])-Date.parse("2017-01-01"))/1000/60/60+myDate.getHours();
+                console.log("index is:", index);
+                showerCount[index]++;
+            }
+        }
+    }
+    for(var i=0;i<hour_count;i++)
+    {
+        
+        var item=[
+            i%24,
+            Math.floor(i/24),
+            showerCount[i]
+        ];
+        data.push(item);
+    }*/
+    /*echarts 模块*/
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    var hours = ['12a', '1a', '2a', '3a', '4a', '5a', '6a',
+            '7a', '8a', '9a','10a','11a',
+            '12p', '1p', '2p', '3p', '4p', '5p',
+            '6p', '7p', '8p', '9p', '10p', '11p'];
+    var days=[];
+    for(var i=0;i<hour_count/24;i++)
+    {
+        days.push(addDate("2017-01-01",i));
+    }
+
+    
+    /*for(var i=0;i<hour_count;i++)
+    {
+        var item=[i%24,Math.floor(i/24),0];
+        data.push(item);
+    }
+    console.log("data is:",data);*/
+
+
+
+    option = {
+        title: {
+            text: '北邮2017年澡堂使用人数云图'
+        },
+        tooltip: {},
+        visualMap: {
+            max: 6000,
+            inRange: {
+                color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+            }
+        },
+        xAxis3D: {
+            type: 'category',
+            data: hours
+        },
+        yAxis3D: {
+            type: 'category',
+            data: days
+        },
+        zAxis3D: {
+            type: 'value'
+        },
+        grid3D: {
+            boxWidth: 200,
+            boxDepth: 1000,
+            light: {
+                main: {
+                    intensity: 1.2
+                },
+                ambient: {
+                    intensity: 0.3
+                }
+            }
+            
+        },
+        series: [{
+            type: 'scatter3D',
+            name: '气泡云图',
+            //coordinateSystem: 'cartesian3D',
+            data:data.map(function (item) {
+                return {
+                    value: [item[0], item[1], item[2]]
+                }
+            }),
+            symbol: 'circle',
+            /*symbolSize: 40,*/
+
+            label: {
+                show: false,
+                textStyle: {
+                    fontSize: 16,
+                    borderWidth: 1
+                }
+            },
+            
+            itemStyle: {
+                opacity: 0.8
+            },
+
+            emphasis: {
+                label: {
+                    textStyle: {
+                        fontSize: 20,
+                        color: '#900'
+                    }
+                },
+                itemStyle: {
+                    color: '#900'
+                }
+            }
+
+        },
+        
+        ]
+    };
+    $("#loader").remove();
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }  
+
+
+
+});
+
+
+
+
+
+
+/*function dataFilter()
+{
+    for(var i=0;i<dataSet.length;i++)
+    {
+        if(dataSet[i].length==5)
+        {
+            if (Date.parse(dataSet[i][1])>=Date.parse("2017-01-01")&&Date.parse(dataSet[i][1])<Date.parse("2018-01-01")&& dataSet[i][4]=='淋浴支出') {
+                var myDate=new Date("2017-01-01 "+dataSet[i][2])
+                var index=(Date.parse(dataSet[i][1])-Date.parse("2017-01-01"))/1000/60/60+myDate.getHours();
+                console.log("index is:", index);
+                showerCount[index]++;
+            }
+        }
+    }
+}
+function update()
+{
+    data.splice(0,data.length);
+    for(var i=0;i<hour_count;i++)
+    {
+        
+        var item=[
+            i%24,
+            Math.floor(i/24),
+            showerCount[i]
+        ];
+        data.push(item);
+    }
+    console.log("data is:",data);
+    var option={
+        series: [{
+        name: '气泡云图',
+        data:data.map(function (item) {
+            return {
+                value: [item[0], item[1], item[2]]
+            }
+        }),
+        
+    }]
+    };
+    myChart.setOption(option);
+
+}*/
+function addDate(date, days) {
+    if (days == undefined || days == '') {
+        days = 1;
+    }
+    var d = new Date(date);
+    d.setDate(d.getDate() + days);
+    var month = d.getMonth() + 1;
+    var day = d.getDate();
+    return d.getFullYear() + '-' + month + '-' + day;
+}
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
